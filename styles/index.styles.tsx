@@ -1,9 +1,9 @@
-import colors from "@/constants/Colors";
+import Colors from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.light.tabbg,
+    backgroundColor: Colors.tabbg,
     borderTopWidth: 0,
     height: 75,
     paddingBottom: 25,

@@ -1,23 +1,18 @@
 import { Tabs } from "expo-router";
 
-import { useColorScheme } from "@/components/useColorScheme";
 import Colors from "@/constants/Colors";
 import styles from "@/styles/index.styles";
 import { Entypo, Feather, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.light.secondarybg,
-        // Color when focused
-        tabBarInactiveTintColor: Colors.light.tabIconDefault, // Color when not focused',
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
+        tabBarActiveTintColor: Colors.secondarybg, // Color when focused
+        tabBarInactiveTintColor: Colors.tabIconDefault, // Color when not focused',
         tabBarStyle: { ...styles.container },
         tabBarLabelStyle: { ...styles.label },
+        headerShown: false, // Hide the header for all tabs
       }}
     >
       <Tabs.Screen
