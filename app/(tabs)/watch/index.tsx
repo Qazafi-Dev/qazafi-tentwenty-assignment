@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
 
-export default function TabOneScreen() {
+export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <Text style={styles.title}>Tab Two</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
@@ -23,8 +23,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    // fontWeight: 'bold',
-    fontFamily: "Poppins-Bold",
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,

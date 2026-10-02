@@ -1,10 +1,9 @@
-import { SymbolView } from 'expo-symbols';
-import { Link, Tabs } from 'expo-router';
-import { Platform, Pressable } from 'react-native';
+import { Tabs } from "expo-router";
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { useColorScheme } from "@/components/useColorScheme";
+import Colors from "@/constants/Colors";
+import styles from "@/styles/index.styles";
+import { Entypo, Feather, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,56 +11,49 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: Colors.light.secondarybg,
+        // Color when focused
+        tabBarInactiveTintColor: Colors.light.tabIconDefault, // Color when not focused',
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarStyle: { ...styles.container },
+        tabBarLabelStyle: { ...styles.label },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: "Dashboard",
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
-            />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable style={{ marginRight: 15 }}>
-                {({ pressed }) => (
-                  <SymbolView
-                    name={{ ios: 'info.circle', android: 'info', web: 'info' }}
-                    size={25}
-                    tintColor={Colors[colorScheme].text}
-                    style={{ opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+            <Entypo name="grid" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="watch"
         options={{
-          title: 'Tab Two',
+          title: "Watch",
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
-            />
+            <FontAwesome name="youtube-play" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="media-library"
+        options={{
+          title: "Media Library",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="layer-group" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="more"
+        options={{
+          title: "More",
+
+          tabBarIcon: ({ color }) => (
+            <Feather name="list" size={24} color={color} />
           ),
         }}
       />
