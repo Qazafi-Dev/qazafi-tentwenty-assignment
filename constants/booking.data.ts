@@ -1,9 +1,11 @@
+import Colors from "./Colors";
+
 export const colors = {
   bg: "#F6F6FA",
   white: "#FFFFFF",
-  text: "#202C43",
+  text: Colors.text,
   muted: "#8F95A3",
-  blue: "#61C3F2",
+  blue: Colors.btnbg,
   vip: "#564CAD",
   selected: "#CD9D0F",
   unavailable: "#D9D9DE",

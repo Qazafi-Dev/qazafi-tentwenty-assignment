@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import Loader from "@/components/Loader";
+import Colors from "@/constants/Colors";
 import { IMAGE_BASE } from "@/services/apiClient";
 import { Movie } from "@/services/movie";
 import { getSearchMovies } from "@/services/movies";
@@ -7,7 +9,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useRef, useState } from "react";
 import {
-  ActivityIndicator,
   FlatList,
   Image,
   Text,
@@ -32,7 +33,6 @@ const searchmovies = () => {
     getSearchMovies(text)
       .then((data) => {
         // Handle the search results here
-        // console.log("Search results:", data);
         setResults(data?.results || []);
       })
       .catch((error) => {
@@ -87,7 +87,7 @@ const searchmovies = () => {
         </View>
 
         <TouchableOpacity style={styles.moreIconInteractiveAnchor}>
-          <Ionicons name="ellipsis-horizontal" size={20} color="#61C3F2" />
+          <Ionicons name="ellipsis-horizontal" size={20} color={Colors.btnbg} />
         </TouchableOpacity>
       </TouchableOpacity>
     );
@@ -103,9 +103,7 @@ const searchmovies = () => {
       </View>
 
       {loading ? (
-        <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color="#2E274C" />
-        </View>
+        <Loader />
       ) : (
         <FlatList
           data={results}

@@ -64,11 +64,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
+
     paddingVertical: 12, // Ensures standard bounding padding
   },
   headtxt: {
     fontSize: 16,
-    color: "#202C43",
+    color: Colors.text,
     fontFamily: "Poppins-Medium",
   },
 });

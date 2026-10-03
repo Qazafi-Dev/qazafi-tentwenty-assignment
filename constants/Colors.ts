@@ -1,6 +1,6 @@
 const Colors = {
-  text: "#000",
-  primarybg: "#DBDBDF",
+  text: "#202C43",
+  primarybg: "#F6F6FA",
   secondarybg: "#fff",
   btnbg: "#61C3F2",
   tabIconDefault: "#827D88",

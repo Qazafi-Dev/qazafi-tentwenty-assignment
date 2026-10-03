@@ -1,4 +1,5 @@
 // app/(tabs)/watch/booking.styles.ts
+import Colors from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
     color: "#202020",
     marginVertical: 14,
     paddingHorizontal: 16,
+    fontFamily: "Poppins-Medium",
   },
   dateSliderHorizontalList: {
     paddingHorizontal: 12,
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     minWidth: 54,
   },
   dateBadgeCapsuleActive: {
-    backgroundColor: "#61C3F2",
+    backgroundColor: Colors.btnbg,
   },
   dateDayNumberText: {
     fontSize: 14,
@@ -57,9 +59,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: "#8E8E93",
     marginTop: 2,
+    fontFamily: "Poppins-Medium",
   },
   textLightColor: {
     color: "#FFFFFF",
+    fontFamily: "Poppins-Medium",
   },
   sessionCardsRow: {
     flexDirection: "row",
@@ -80,11 +84,13 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#202020",
     marginBottom: 2,
+    fontFamily: "Poppins-Medium",
   },
   sessionHallNameText: {
     fontSize: 11,
     color: "#8E8E93",
     marginBottom: 8,
+    fontFamily: "Poppins-Medium",
   },
   sessionMiniMapPlaceholder: {
     height: 60,
@@ -101,6 +107,7 @@ const styles = StyleSheet.create({
   sessionBonusTagLabel: {
     fontSize: 10,
     color: "#8E8E93",
+    fontFamily: "Poppins-Medium",
   },
   theaterStageArch: {
     width: "80%",
@@ -155,6 +162,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#8E8E93",
     fontWeight: "500",
+    fontFamily: "Poppins-Medium",
   },
   summaryCheckoutStickyBar: {
     borderTopWidth: 1,
@@ -182,7 +190,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   checkoutActionButton: {
-    backgroundColor: "#61C3F2",
+    backgroundColor: Colors.btnbg,
     borderRadius: 10,
     paddingHorizontal: 32,
     height: 48,
@@ -193,6 +201,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "700",
+    fontFamily: "Poppins-Medium",
   },
 });
 export default styles;

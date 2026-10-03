@@ -201,7 +201,7 @@ export default function SelectSeatsScreen() {
                 <Text
                   style={[
                     styles.buttonText,
-                    { color: "#202C43", textAlign: "center" },
+                    { color: Colors.text, textAlign: "center" },
                   ]}
                 >
                   {total ? `Total Price  ${total}$` : "Total Price "}
@@ -239,7 +239,7 @@ export default function SelectSeatsScreen() {
                 <Text
                   style={[
                     styles.buttonText,
-                    { color: "#202C43", textAlign: "center" },
+                    { color: Colors.text, textAlign: "center" },
                   ]}
                 >
                   {total ? `Total Price  ${total}$` : "Total Price "}
@@ -255,7 +255,7 @@ export default function SelectSeatsScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.bg },
+  screen: { flex: 1, backgroundColor: Colors.primarybg },
   head: {
     backgroundColor: "#fff",
     borderBottomWidth: 1,
@@ -269,7 +269,12 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontFamily: "Poppins-Medium",
   },
-  subtitle: { fontSize: 13, color: colors.blue, marginTop: 4 },
+  subtitle: {
+    fontSize: 13,
+    color: colors.blue,
+    marginTop: 4,
+    fontFamily: "Poppins-Medium",
+  },
   screenArc: {
     width: "90%",
     height: 30,

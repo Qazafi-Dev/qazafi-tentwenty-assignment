@@ -20,7 +20,7 @@ export default function TabTwoScreen() {
   const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const isLandscape = width > height;
-  const cardWidth = isLandscape ? (width - 48) / 2 : width - 32;
+  const cardWidth = isLandscape ? (width - 48) / 2 : width - 30;
 
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -69,7 +69,14 @@ export default function TabTwoScreen() {
         { paddingTop: insets.top, paddingBottom: insets.bottom },
       ]}
     >
-      <View style={[styles.head, { paddingTop: insets.top, paddingBottom: 8 }]}>
+      <View
+        style={[
+          styles.head,
+          {
+            paddingBottom: 8,
+          },
+        ]}
+      >
         <View style={styles.headerrow}>
           <Text style={styles.headtxt}>Watch</Text>
           <TouchableOpacity

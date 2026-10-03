@@ -1,4 +1,5 @@
 import { wp } from "@/components/ScreenContainer";
+import Colors from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -69,6 +70,12 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "space-between",
   },
+  imageScaling: {
+    width: "100%",
+    height: "100%",
+    left: 5,
+    borderRadius: 8,
+  },
   backActionButton: {
     width: 40,
     height: 40,
@@ -88,7 +95,7 @@ const styles = StyleSheet.create({
   },
   metaDateText: {
     color: "#FFFFFF",
-    fontSize: wp(5.5),
+    fontSize: 16,
     marginBottom: 5,
     textAlign: "center",
     fontFamily: "Poppins-Medium",
@@ -124,11 +131,11 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   sectionHeadingTitle: {
-    fontSize: wp(4.5),
-    fontWeight: "700",
-    color: "#202C43",
+    fontSize: wp(4),
+    fontWeight: "500",
+    color: Colors.text,
     marginTop: 16,
-    marginBottom: 12,
+    marginBottom: 5,
     fontFamily: "Poppins-Medium",
   },
   tagsContainerRow: {

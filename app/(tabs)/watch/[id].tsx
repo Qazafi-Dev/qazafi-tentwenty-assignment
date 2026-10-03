@@ -40,6 +40,7 @@ export default function MovieDetailsScreen() {
   const isLandscape = width > height;
 
   useEffect(() => {
+    setLoading(true);
     getMovieDetails(Number(id))
       .then((data) => {
         setMovie(data);
@@ -51,10 +52,6 @@ export default function MovieDetailsScreen() {
         setLoading(false);
       });
   }, [id]);
-
-  if (loading) {
-    return <Loader />;
-  }
 
   const imageUri = movie?.backdrop_path
     ? `${IMAGE_BASE}${movie.backdrop_path}`
@@ -74,6 +71,11 @@ export default function MovieDetailsScreen() {
 
   const renderMainInfoContent = () => (
     <>
+      <Text
+        style={[styles.sectionHeadingTitle, { marginTop: 0, fontSize: 22 }]}
+      >
+        {movie?.title} {movie?.runtime ? `(${movie.runtime} mins)` : ""}
+      </Text>
       <Text style={styles.sectionHeadingTitle}>Genres</Text>
       <View style={styles.tagsContainerRow}>
         {movie?.genres?.map((genre, idx) => (
@@ -93,7 +95,9 @@ export default function MovieDetailsScreen() {
       <Text style={styles.bodyOverviewParagraphText}>{movie?.overview}</Text>
     </>
   );
-
+  if (loading) {
+    return <Loader />;
+  }
   if (isLandscape) {
     return (
       <View
@@ -106,6 +110,7 @@ export default function MovieDetailsScreen() {
           <ImageBackground
             source={{ uri: imageUri }}
             style={styles.heroPosterLandscape}
+            imageStyle={styles.imageScaling}
             resizeMode="cover"
           >
             <TouchableOpacity
@@ -121,14 +126,6 @@ export default function MovieDetailsScreen() {
             style={styles.contentBodyWrapperLandscape}
             showsVerticalScrollIndicator={false}
           >
-            <Text
-              style={[
-                styles.sectionHeadingTitle,
-                { marginTop: 0, fontSize: 22 },
-              ]}
-            >
-              {movie?.title} {movie?.runtime ? `(${movie.runtime} mins)` : ""}
-            </Text>
             {renderMainInfoContent()}
           </ScrollView>
         </View>

@@ -6,6 +6,7 @@ import {
   colors,
   seatColor,
 } from "@/constants/booking.data";
+import Colors from "@/constants/Colors";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -167,7 +168,7 @@ export default function SelectShowScreen() {
 }
 
 const s = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.bg },
+  screen: { flex: 1, backgroundColor: Colors.primarybg },
   head: {
     backgroundColor: "#fff",
     borderBottomWidth: 1,
@@ -181,7 +182,12 @@ const s = StyleSheet.create({
     color: colors.text,
     fontFamily: "Poppins-Medium",
   },
-  subtitle: { fontSize: 13, color: colors.blue, marginTop: 4 },
+  subtitle: {
+    fontSize: 13,
+    color: colors.blue,
+    marginTop: 4,
+    fontFamily: "Poppins-Medium",
+  },
   heading: {
     fontSize: 18,
     fontWeight: "600",
@@ -214,7 +220,7 @@ const s = StyleSheet.create({
     color: colors.text,
     fontFamily: "Poppins-Medium",
   },
-  cinema: { fontSize: 14, color: colors.muted },
+  cinema: { fontSize: 14, color: colors.muted, fontFamily: "Poppins-Medium" },
   card: {
     borderRadius: 10,
     borderWidth: 1,

@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import { Entypo } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { wp } from "./ScreenContainer";
@@ -15,7 +16,7 @@ const Button = ({ btntitle, bgc, onPress, width }: ButtonProps) => {
       onPress={onPress}
       style={[
         styles.btn,
-        { backgroundColor: bgc || undefined, width: width || wp(65) },
+        { backgroundColor: bgc || undefined, width: width || wp(62) },
       ]}
     >
       {!bgc && (
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#61C3F2",
+    borderColor: Colors.btnbg,
     marginVertical: 8,
     flexDirection: "row",
     gap: 8,

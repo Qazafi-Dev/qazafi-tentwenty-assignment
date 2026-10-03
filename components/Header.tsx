@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "90%",
     paddingVertical: 12,
-    backgroundColor: "#FAFAFA", // Matches your screen background
     alignSelf: "center",
     // Adds a subtle shadow for depth
   },

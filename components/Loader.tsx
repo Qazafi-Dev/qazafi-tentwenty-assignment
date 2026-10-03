@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { hp, wp } from "./ScreenContainer";
 
@@ -5,7 +6,7 @@ interface LoaderProps {
   color?: string;
   size?: "small" | "large";
 }
-function Loader({ color = "#61C3F2", size = "large" }: LoaderProps) {
+function Loader({ color = Colors.btnbg, size = "large" }: LoaderProps) {
   return (
     <View style={styles.container}>
       <ActivityIndicator size={size} color={color} />
