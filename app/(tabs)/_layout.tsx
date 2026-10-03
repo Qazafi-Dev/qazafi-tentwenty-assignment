@@ -1,16 +1,21 @@
-import { Tabs } from "expo-router";
+import { Tabs, usePathname } from "expo-router";
 
 import Colors from "@/constants/Colors";
 import styles from "@/styles/index.styles";
 import { Entypo, Feather, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 
 export default function TabLayout() {
+  const pathname = usePathname();
+  const isWatchDetailsScreen = /^\/watch\/.+/.test(pathname);
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.secondarybg, // Color when focused
         tabBarInactiveTintColor: Colors.tabIconDefault, // Color when not focused',
-        tabBarStyle: { ...styles.container },
+        tabBarStyle: {
+          ...styles.container,
+          display: isWatchDetailsScreen ? "none" : "flex",
+        },
         tabBarLabelStyle: { ...styles.label },
         headerShown: false, // Hide the header for all tabs
       }}
@@ -28,6 +33,7 @@ export default function TabLayout() {
         name="watch"
         options={{
           title: "Watch",
+          // href: null,
           tabBarIcon: ({ color }) => (
             <FontAwesome name="youtube-play" size={24} color={color} />
           ),

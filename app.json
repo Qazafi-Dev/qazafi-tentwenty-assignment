@@ -3,7 +3,7 @@
     "name": "qazafi-tentwenty-assignment",
     "slug": "qazafi-tentwenty-assignment",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "qazafitentwentyassignment",
     "userInterfaceStyle": "automatic",

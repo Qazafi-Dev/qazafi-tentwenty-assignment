@@ -1,12 +1,12 @@
 import { Entypo } from "@expo/vector-icons";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { wp } from "./ScreenContainer";
 
 interface ButtonProps {
-  btntitle: string;
-  bgc: string;
-  onPress: () => void;
-  width: number | null;
+  btntitle?: string;
+  bgc?: string;
+  onPress?: () => void;
+  width?: number | null;
 }
 
 const Button = ({ btntitle, bgc, onPress, width }: ButtonProps) => {
@@ -15,11 +15,17 @@ const Button = ({ btntitle, bgc, onPress, width }: ButtonProps) => {
       onPress={onPress}
       style={[
         styles.btn,
-        { backgroundColor: bgc || undefined, width: width || wp(68) },
+        { backgroundColor: bgc || undefined, width: width || wp(65) },
       ]}
     >
-      {bgc === "" && <Entypo name="controller-play" size={24} color={"#fff"} />}
-      <Text style={styles.txt}>{btntitle}</Text>
+      {!bgc && (
+        <>
+          <Entypo name="controller-play" size={20} color={"#fff"} />
+        </>
+      )}
+      <View style={{ marginRight: !bgc ? 8 : 0 }}>
+        <Text style={styles.txt}>{btntitle}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -28,7 +34,6 @@ export default Button;
 
 const styles = StyleSheet.create({
   btn: {
-    width: wp(68),
     height: 50,
     borderRadius: 10,
     justifyContent: "center",
@@ -37,6 +42,7 @@ const styles = StyleSheet.create({
     borderColor: "#61C3F2",
     marginVertical: 8,
     flexDirection: "row",
+    gap: 8,
   },
   txt: {
     color: "#fff",
