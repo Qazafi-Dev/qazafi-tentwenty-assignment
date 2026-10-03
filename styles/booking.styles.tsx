@@ -1,0 +1,198 @@
+// app/(tabs)/watch/booking.styles.ts
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  rootWrapper: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  portraitScrollContainer: {
+    paddingBottom: 40,
+  },
+  landscapeSplitWrapper: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  leftLandscapePanel: {
+    width: "48%",
+    borderRightWidth: 1,
+    borderRightColor: "#EFEFEF",
+    paddingHorizontal: 16,
+    paddingTop: 12,
+  },
+  rightLandscapePanel: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+  },
+  sectionTitleLabel: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#202020",
+    marginVertical: 14,
+    paddingHorizontal: 16,
+  },
+  dateSliderHorizontalList: {
+    paddingHorizontal: 12,
+    marginBottom: 16,
+  },
+  dateBadgeCapsule: {
+    backgroundColor: "#F5F5F7",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    alignItems: "center",
+    marginHorizontal: 4,
+    minWidth: 54,
+  },
+  dateBadgeCapsuleActive: {
+    backgroundColor: "#61C3F2",
+  },
+  dateDayNumberText: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#202020",
+  },
+  dateMonthStringText: {
+    fontSize: 11,
+    color: "#8E8E93",
+    marginTop: 2,
+  },
+  textLightColor: {
+    color: "#FFFFFF",
+  },
+  sessionCardsRow: {
+    flexDirection: "row",
+    paddingHorizontal: 12,
+    gap: 12,
+    marginBottom: 20,
+  },
+  sessionCardContainer: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "#EFEFEF",
+    borderRadius: 10,
+    padding: 12,
+    backgroundColor: "#FAFAFC",
+  },
+  sessionTimeText: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#202020",
+    marginBottom: 2,
+  },
+  sessionHallNameText: {
+    fontSize: 11,
+    color: "#8E8E93",
+    marginBottom: 8,
+  },
+  sessionMiniMapPlaceholder: {
+    height: 60,
+    backgroundColor: "#EAEAEA",
+    borderRadius: 6,
+    marginBottom: 8,
+    opacity: 0.6,
+  },
+  sessionPriceTagLabel: {
+    fontSize: 11,
+    color: "#202020",
+    fontWeight: "600",
+  },
+  sessionBonusTagLabel: {
+    fontSize: 10,
+    color: "#8E8E93",
+  },
+  theaterStageArch: {
+    width: "80%",
+    height: 6,
+    backgroundColor: "#DBDBDF",
+    alignSelf: "center",
+    borderRadius: 3,
+    marginVertical: 16,
+  },
+  seatingGridBodyContainer: {
+    paddingHorizontal: 12,
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  seatingRowCluster: {
+    flexDirection: "row",
+    marginVertical: 3,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  seatSquareElement: {
+    width: 14,
+    height: 14,
+    borderRadius: 3,
+    backgroundColor: "#DBDBDF",
+    marginHorizontal: 3,
+  },
+  seatSquareRegular: { backgroundColor: "#DBDBDF" },
+  seatSquareVip: { backgroundColor: "#2E274C" },
+  seatSquareSelected: { backgroundColor: "#FFCC00" },
+  seatSquareReserved: { backgroundColor: "#E0E0E0", opacity: 0.4 },
+  legendContainerGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingHorizontal: 16,
+    gap: 16,
+    justifyContent: "center",
+    marginVertical: 16,
+  },
+  legendItemNode: {
+    flexDirection: "row",
+    alignItems: "center",
+    minWidth: 100,
+  },
+  legendIndicatorSquare: {
+    width: 14,
+    height: 14,
+    borderRadius: 3,
+    marginRight: 8,
+  },
+  legendDescriptorLabel: {
+    fontSize: 12,
+    color: "#8E8E93",
+    fontWeight: "500",
+  },
+  summaryCheckoutStickyBar: {
+    borderTopWidth: 1,
+    borderTopColor: "#EFEFEF",
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  priceSummaryLayout: {
+    justifyContent: "center",
+  },
+  totalPriceHeaderLabel: {
+    fontSize: 11,
+    color: "#202020",
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  totalPriceSumValue: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#202020",
+    marginTop: 2,
+  },
+  checkoutActionButton: {
+    backgroundColor: "#61C3F2",
+    borderRadius: 10,
+    paddingHorizontal: 32,
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  checkoutActionLabel: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "700",
+  },
+});
+export default styles;

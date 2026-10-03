@@ -5,8 +5,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   screenCanvas: {
     flex: 1,
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "#fff",
   },
+
   centerContainer: {
     flex: 1,
     justifyContent: "center",
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     letterSpacing: -0.2,
     padding: 12,
+    fontFamily: "Poppins-Medium",
   },
   head: {
     backgroundColor: "#fff",

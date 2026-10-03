@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { EvilIcons, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, StyleSheet, TextInput, View } from "react-native";
 
@@ -37,12 +37,7 @@ const Header: React.FC<CustomHeaderProps> = ({
           autoCorrect={false}
         />
         <Pressable onPress={() => setSearchValue("")} style={styles.iconButton}>
-          <Ionicons
-            name="search"
-            size={20}
-            color="#828282"
-            style={styles.searchIcon}
-          />
+          <EvilIcons name="close" size={25} color="#828282" />
         </Pressable>
       </View>
     </View>
@@ -76,11 +71,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#333333",
     height: "100%",
-    fontFamily: "Poppins-Light",
+    fontFamily: "Poppins-Medium",
   },
   iconButton: {
-    padding: 8,
-    marginLeft: 8,
     justifyContent: "center",
     alignItems: "center",
   },

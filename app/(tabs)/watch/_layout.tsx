@@ -18,6 +18,18 @@ export default function WatchLayout() {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="booking"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="select-seats"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 }

@@ -63,7 +63,11 @@ export default function MovieDetailsScreen() {
   const renderHeroOverlay = () => (
     <View style={styles.heroTextOverlayContainer}>
       <Text style={styles.metaDateText}>In Theaters {movie?.release_date}</Text>
-      <Button btntitle="Get Tickets" bgc={Colors.btnbg} />
+      <Button
+        btntitle="Get Tickets"
+        bgc={Colors.btnbg}
+        onPress={() => router.push("/watch/booking")}
+      />
       <Button btntitle="Watch Trailer" />
     </View>
   );

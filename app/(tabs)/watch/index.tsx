@@ -62,9 +62,7 @@ export default function TabTwoScreen() {
       </TouchableOpacity>
     );
   };
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <View
       style={[
         styles.screenCanvas,
@@ -82,19 +80,24 @@ export default function TabTwoScreen() {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
-        contentContainerStyle={styles.listWrapper}
-        columnWrapperStyle={isLandscape ? styles.gridSpacing : undefined}
-        data={movies}
-        keyExtractor={(item, index) => index.toString()}
-        key={isLandscape ? "landscape-layout-grid" : "portrait-layout-list"}
-        numColumns={isLandscape ? 2 : 1}
-        removeClippedSubviews
-        windowSize={10}
-        maxToRenderPerBatch={10}
-        showsVerticalScrollIndicator={false}
-        renderItem={renderMovies}
-      />
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <FlatList
+          contentContainerStyle={styles.listWrapper}
+          columnWrapperStyle={isLandscape ? styles.gridSpacing : undefined}
+          data={movies}
+          keyExtractor={(item, index) => index.toString()}
+          key={isLandscape ? "landscape-layout-grid" : "portrait-layout-list"}
+          numColumns={isLandscape ? 2 : 1}
+          removeClippedSubviews
+          windowSize={10}
+          maxToRenderPerBatch={10}
+          showsVerticalScrollIndicator={false}
+          renderItem={renderMovies}
+        />
+      )}
     </View>
   );
 }
