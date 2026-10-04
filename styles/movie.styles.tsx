@@ -1,6 +1,6 @@
 import { wp } from "@/components/ScreenContainer";
 import Colors from "@/constants/Colors";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   screenCanvas: {
@@ -69,11 +69,12 @@ const styles = StyleSheet.create({
     width: "45%",
     height: "100%",
     justifyContent: "space-between",
+    top: Platform.OS == "ios" ? 8 : 0,
   },
   imageScaling: {
     width: "100%",
     height: "100%",
-    left: 5,
+    left: Platform.OS == "android" ? 5 : 0,
     borderRadius: 8,
   },
   backActionButton: {

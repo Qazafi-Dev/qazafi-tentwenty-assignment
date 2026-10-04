@@ -11,6 +11,7 @@ import {
   type Seat,
 } from "@/constants/booking.data";
 import Colors from "@/constants/Colors";
+import styles from "@/styles/booking.styles";
 import { Feather } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
@@ -67,15 +68,15 @@ export default function SelectSeatsScreen() {
 
   const seatMap = (
     <View style={{ alignItems: "center" }}>
-      <View style={styles.screenArc}>
-        <Text style={styles.screenText}>SCREEN</Text>
+      <View style={s.screenArc}>
+        <Text style={s.screenText}>SCREEN</Text>
       </View>
       {SEAT_ROWS.map((r) => (
         <View
           key={r.row}
           style={{ flexDirection: "row", alignItems: "center" }}
         >
-          <Text style={[styles.rowLabel, { width: LABEL_W }]}>{r.row}</Text>
+          <Text style={[s.rowLabel, { width: LABEL_W }]}>{r.row}</Text>
           {r.sections.map((sec, i) => (
             <View
               key={i}
@@ -117,24 +118,24 @@ export default function SelectSeatsScreen() {
   ];
 
   const info = (
-    <View style={styles.panel}>
-      <View style={styles.legend}>
+    <View style={s.panel}>
+      <View style={s.legend}>
         {legend.map((l) => (
           <View
             key={l.label}
-            style={[styles.legendItem, { width: isLandscape ? "100%" : "50%" }]}
+            style={[s.legendItem, { width: isLandscape ? "100%" : "50%" }]}
           >
-            <View style={[styles.legendBox, { backgroundColor: l.color }]} />
-            <Text style={styles.legendText}>{l.label}</Text>
+            <View style={[s.legendBox, { backgroundColor: l.color }]} />
+            <Text style={s.legendText}>{l.label}</Text>
           </View>
         ))}
       </View>
 
-      <View style={styles.chips}>
+      <View style={s.chips}>
         {selected.map((x) => (
-          <View key={x.id} style={styles.seatChip}>
-            <Text style={styles.chipBig}>{x.number}</Text>
-            <Text style={styles.chipSmall}> / {x.row} row</Text>
+          <View key={x.id} style={s.seatChip}>
+            <Text style={s.chipBig}>{x.number}</Text>
+            <Text style={s.chipSmall}> / {x.row} row</Text>
             <TouchableOpacity onPress={() => toggle(x)} hitSlop={8}>
               <Feather
                 name="x"
@@ -192,15 +193,12 @@ export default function SelectSeatsScreen() {
               {info}
             </ScrollView>
             <View
-              style={[
-                styles.seatprice,
-                { flexDirection: "column", paddingTop: 5 },
-              ]}
+              style={[s.seatprice, { flexDirection: "column", paddingTop: 5 }]}
             >
-              <View style={[styles.price, { width: wp(40) }]}>
+              <View style={[s.price, { width: wp(40) }]}>
                 <Text
                   style={[
-                    styles.buttonText,
+                    s.buttonText,
                     { color: Colors.text, textAlign: "center" },
                   ]}
                 >
@@ -234,11 +232,11 @@ export default function SelectSeatsScreen() {
               paddingBottom: insets.bottom + 12,
             }}
           >
-            <View style={styles.seatprice}>
-              <View style={styles.price}>
+            <View style={s.seatprice}>
+              <View style={s.price}>
                 <Text
                   style={[
-                    styles.buttonText,
+                    s.buttonText,
                     { color: Colors.text, textAlign: "center" },
                   ]}
                 >
@@ -254,27 +252,7 @@ export default function SelectSeatsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: Colors.primarybg },
-  head: {
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  headRow: { height: 68, justifyContent: "center", alignItems: "center" },
-  back: { position: "absolute", left: 16, top: 22 },
-  title: {
-    fontSize: 18,
-    fontWeight: "500",
-    color: colors.text,
-    fontFamily: "Poppins-Medium",
-  },
-  subtitle: {
-    fontSize: 13,
-    color: colors.blue,
-    marginTop: 4,
-    fontFamily: "Poppins-Medium",
-  },
+const s = StyleSheet.create({
   screenArc: {
     width: "90%",
     height: 30,
@@ -297,21 +275,38 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Poppins-Medium",
   },
-  panel: { backgroundColor: "#fff", borderRadius: 12, padding: 20, gap: 24 },
-  legend: { flexDirection: "row", flexWrap: "wrap", rowGap: 18 },
+  panel: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 20,
+    gap: 24,
+  },
+  legend: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    rowGap: 18,
+  },
   legendItem: {
     width: "50%",
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
   },
-  legendBox: { width: 22, height: 20, borderRadius: 4 },
+  legendBox: {
+    width: 22,
+    height: 20,
+    borderRadius: 4,
+  },
   legendText: {
     fontSize: 14,
     color: colors.muted,
     fontFamily: "Poppins-Medium",
   },
-  chips: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
+  chips: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+  },
   seatChip: {
     flexDirection: "row",
     alignItems: "center",
@@ -338,7 +333,11 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontFamily: "Poppins-Medium",
   },
-  chipSmall: { fontSize: 13, color: colors.text, fontFamily: "Poppins-Medium" },
+  chipSmall: {
+    fontSize: 13,
+    color: colors.text,
+    fontFamily: "Poppins-Medium",
+  },
   button: {
     height: 52,
     borderRadius: 12,

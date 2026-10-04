@@ -5,7 +5,7 @@ import { getMovies } from "@/services/movies";
 import styles from "@/styles/movies.styles";
 import { EvilIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   FlatList,
   ImageBackground,
@@ -24,21 +24,23 @@ export default function TabTwoScreen() {
 
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
-    getMovies()
-      .then((data) => {
-        setMovies(data?.results || []);
-      })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    loadMovies().finally(() => setLoading(false));
   }, []);
-
+  const loadMovies = useCallback(async () => {
+    try {
+      const data = await getMovies();
+      setMovies(data?.results || []);
+      setError(null);
+    } catch (e) {
+      console.error("Error fetching movies:", e);
+      setError("No internet and nothing saved yet");
+    }
+  }, []);
   const renderMovies = ({ item }: { item: Movie }) => {
     const posterUri = item.poster_path
       ? `${IMAGE_BASE}${item.poster_path}`
@@ -61,6 +63,12 @@ export default function TabTwoScreen() {
         </ImageBackground>
       </TouchableOpacity>
     );
+  };
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await loadMovies();
+    setRefreshing(false);
   };
   return (
     <View
@@ -87,11 +95,13 @@ export default function TabTwoScreen() {
           </TouchableOpacity>
         </View>
       </View>
-
+      {error && movies.length === 0 && <Text>{error}</Text>}
       {loading ? (
         <Loader />
       ) : (
         <FlatList
+          refreshing={refreshing}
+          onRefresh={onRefresh}
           contentContainerStyle={styles.listWrapper}
           columnWrapperStyle={isLandscape ? styles.gridSpacing : undefined}
           data={movies}

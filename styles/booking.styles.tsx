@@ -1,4 +1,5 @@
 // app/(tabs)/watch/booking.styles.ts
+import { colors } from "@/constants/booking.data";
 import Colors from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
@@ -201,6 +202,128 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "700",
+    fontFamily: "Poppins-Medium",
+  },
+  screen: {
+    flex: 1,
+    backgroundColor: Colors.primarybg,
+  },
+  head: {
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  headRow: {
+    height: 68,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  back: {
+    position: "absolute",
+    left: 16,
+    top: 22,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "500",
+    color: colors.text,
+    fontFamily: "Poppins-Medium",
+  },
+  subtitle: {
+    fontSize: 13,
+    color: colors.blue,
+    marginTop: 4,
+    fontFamily: "Poppins-Medium",
+  },
+  heading: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: colors.text,
+    marginBottom: 16,
+    fontFamily: "Poppins-Medium",
+  },
+  chip: {
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    borderRadius: 10,
+    backgroundColor: colors.chip,
+  },
+  chipActive: {
+    backgroundColor: colors.blue,
+  },
+  chipText: {
+    fontSize: 14,
+    fontWeight: "500",
+    color: colors.text,
+    fontFamily: "Poppins-Medium",
+  },
+  cardHead: {
+    flexDirection: "row",
+    alignItems: "baseline",
+    gap: 8,
+    marginBottom: 10,
+  },
+  time: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: colors.text,
+    fontFamily: "Poppins-Medium",
+  },
+  cinema: {
+    fontSize: 14,
+    color: colors.muted,
+    fontFamily: "Poppins-Medium",
+  },
+  card: {
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: "#fff",
+  },
+  cardActive: {
+    borderColor: colors.blue,
+    borderWidth: 2,
+  },
+  from: {
+    marginTop: 10,
+    fontSize: 14,
+    color: colors.muted,
+  },
+  bold: {
+    fontWeight: "700",
+    color: colors.text,
+    fontFamily: "Poppins-Medium",
+  },
+  preview: {
+    alignItems: "center",
+    paddingVertical: 18,
+  },
+  arc: {
+    width: "70%",
+    height: 10,
+    marginBottom: 6,
+    borderTopWidth: 1,
+    borderColor: colors.blue,
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+  },
+  dot: {
+    width: 4,
+    height: 4,
+    margin: 1,
+    borderRadius: 1,
+  },
+  button: {
+    height: 52,
+    borderRadius: 12,
+    backgroundColor: colors.blue,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#fff",
     fontFamily: "Poppins-Medium",
   },
 });

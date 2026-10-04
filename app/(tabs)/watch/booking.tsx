@@ -6,13 +6,12 @@ import {
   colors,
   seatColor,
 } from "@/constants/booking.data";
-import Colors from "@/constants/Colors";
+import styles from "@/styles/booking.styles";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -26,7 +25,7 @@ function Header({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <View
       style={[
-        s.head,
+        styles.head,
         {
           paddingTop: insets.top,
           paddingLeft: insets.left,
@@ -34,12 +33,12 @@ function Header({ title, subtitle }: { title: string; subtitle: string }) {
         },
       ]}
     >
-      <View style={s.headRow}>
-        <TouchableOpacity style={s.back} onPress={() => router.back()}>
+      <View style={styles.headRow}>
+        <TouchableOpacity style={styles.back} onPress={() => router.back()}>
           <Feather name="chevron-left" size={26} color={colors.text} />
         </TouchableOpacity>
-        <Text style={s.title}>{title}</Text>
-        <Text style={s.subtitle}>{subtitle}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
     </View>
   );
@@ -47,8 +46,8 @@ function Header({ title, subtitle }: { title: string; subtitle: string }) {
 
 function HallPreview() {
   return (
-    <View style={s.preview}>
-      <View style={s.arc} />
+    <View style={styles.preview}>
+      <View style={styles.arc} />
       {SEAT_ROWS.map((r) => (
         <View key={r.row} style={{ flexDirection: "row" }}>
           {r.sections.map((sec, i) => (
@@ -59,7 +58,7 @@ function HallPreview() {
               {sec.map((c, j) => (
                 <View
                   key={j}
-                  style={[s.dot, c && { backgroundColor: seatColor(c) }]}
+                  style={[styles.dot, c && { backgroundColor: seatColor(c) }]}
                 />
               ))}
             </View>
@@ -83,7 +82,7 @@ export default function SelectShowScreen() {
   const cardW = isLandscape ? (width - padX * 2) / 2.3 : width * 0.62;
 
   return (
-    <View style={s.screen}>
+    <View style={styles.screen}>
       <Header
         title={MOVIE.title}
         subtitle={`In Theaters ${MOVIE.releaseDate}`}
@@ -92,7 +91,7 @@ export default function SelectShowScreen() {
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: padX, paddingVertical: 28 }}
       >
-        <Text style={s.heading}>Date</Text>
+        <Text style={styles.heading}>Date</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -104,9 +103,9 @@ export default function SelectShowScreen() {
               <TouchableOpacity
                 key={d.id}
                 onPress={() => setDateId(d.id)}
-                style={[s.chip, active && s.chipActive]}
+                style={[styles.chip, active && styles.chipActive]}
               >
-                <Text style={[s.chipText, active && { color: "#fff" }]}>
+                <Text style={[styles.chipText, active && { color: "#fff" }]}>
                   {d.label}
                 </Text>
               </TouchableOpacity>
@@ -122,22 +121,22 @@ export default function SelectShowScreen() {
         >
           {SHOWTIMES.map((st) => (
             <View key={st.id} style={{ width: cardW }}>
-              <View style={s.cardHead}>
-                <Text style={s.time}>{st.time}</Text>
-                <Text style={s.cinema}>
+              <View style={styles.cardHead}>
+                <Text style={styles.time}>{st.time}</Text>
+                <Text style={styles.cinema}>
                   {st.cinema} + {st.hall}
                 </Text>
               </View>
               <TouchableOpacity
                 activeOpacity={0.85}
                 onPress={() => setShowId(st.id)}
-                style={[s.card, st.id === showId && s.cardActive]}
+                style={[styles.card, st.id === showId && styles.cardActive]}
               >
                 <HallPreview />
               </TouchableOpacity>
-              <Text style={s.from}>
-                From <Text style={s.bold}>{st.fromPrice}$</Text> or{" "}
-                <Text style={s.bold}>{st.bonus} bonus</Text>
+              <Text style={styles.from}>
+                From <Text style={styles.bold}>{st.fromPrice}$</Text> or{" "}
+                <Text style={styles.bold}>{st.bonus} bonus</Text>
               </Text>
             </View>
           ))}
@@ -152,7 +151,7 @@ export default function SelectShowScreen() {
         }}
       >
         <TouchableOpacity
-          style={s.button}
+          style={styles.button}
           onPress={() =>
             router.push({
               pathname: "/watch/select-seats",
@@ -160,98 +159,9 @@ export default function SelectShowScreen() {
             })
           }
         >
-          <Text style={s.buttonText}>Select Seats</Text>
+          <Text style={styles.buttonText}>Select Seats</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 }
-
-const s = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: Colors.primarybg },
-  head: {
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  headRow: { height: 68, justifyContent: "center", alignItems: "center" },
-  back: { position: "absolute", left: 16, top: 22 },
-  title: {
-    fontSize: 18,
-    fontWeight: "500",
-    color: colors.text,
-    fontFamily: "Poppins-Medium",
-  },
-  subtitle: {
-    fontSize: 13,
-    color: colors.blue,
-    marginTop: 4,
-    fontFamily: "Poppins-Medium",
-  },
-  heading: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: colors.text,
-    marginBottom: 16,
-    fontFamily: "Poppins-Medium",
-  },
-  chip: {
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-    borderRadius: 10,
-    backgroundColor: colors.chip,
-  },
-  chipActive: { backgroundColor: colors.blue },
-  chipText: {
-    fontSize: 14,
-    fontWeight: "500",
-    color: colors.text,
-    fontFamily: "Poppins-Medium",
-  },
-  cardHead: {
-    flexDirection: "row",
-    alignItems: "baseline",
-    gap: 8,
-    marginBottom: 10,
-  },
-  time: {
-    fontSize: 16,
-    fontWeight: "500",
-    color: colors.text,
-    fontFamily: "Poppins-Medium",
-  },
-  cinema: { fontSize: 14, color: colors.muted, fontFamily: "Poppins-Medium" },
-  card: {
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: "#fff",
-  },
-  cardActive: { borderColor: colors.blue, borderWidth: 2 },
-  from: { marginTop: 10, fontSize: 14, color: colors.muted },
-  bold: { fontWeight: "700", color: colors.text, fontFamily: "Poppins-Medium" },
-  preview: { alignItems: "center", paddingVertical: 18 },
-  arc: {
-    width: "70%",
-    height: 10,
-    marginBottom: 6,
-    borderTopWidth: 1,
-    borderColor: colors.blue,
-    borderTopLeftRadius: 100,
-    borderTopRightRadius: 100,
-  },
-  dot: { width: 4, height: 4, margin: 1, borderRadius: 1 },
-  button: {
-    height: 52,
-    borderRadius: 12,
-    backgroundColor: colors.blue,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonText: {
-    fontSize: 15,
-    fontWeight: "600",
-    color: "#fff",
-    fontFamily: "Poppins-Medium",
-  },
-});

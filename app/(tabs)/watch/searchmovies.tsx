@@ -27,6 +27,7 @@ const searchmovies = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [results, setResults] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [refreshing, setRefreshing] = useState<boolean>(false);
 
   function handleSearchChange(text: string) {
     setLoading(true);
@@ -57,6 +58,11 @@ const searchmovies = () => {
     }, 1000);
   };
 
+  const onRefresh = async () => {
+    setRefreshing(true);
+    handleSearchChange(searchValue);
+    setRefreshing(false);
+  };
   const renderMovies = ({ item }: { item: Movie }) => {
     const posterUri = item.poster_path
       ? `${IMAGE_BASE}${item.poster_path}`
@@ -106,6 +112,8 @@ const searchmovies = () => {
         <Loader />
       ) : (
         <FlatList
+          refreshing={refreshing}
+          onRefresh={onRefresh}
           data={results}
           keyExtractor={(item: Movie) => item.id.toString()}
           key={isLandscape ? "search-landscape-2-col" : "search-portrait-1-col"}
