@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/6fa422ad-8d63-455b-8d08-d793dcb3f759
+
 # TenTwenty Assignment: Movie App (React Native + TypeScript)
 
 A movie app built with **Expo**, **React Native** and **TypeScript**. It shows popular movies from the TMDB API, lets you search and view movie details, and has a ticket-booking flow (pick a date and showtime, then choose seats). It works in **portrait and landscape**, and keeps working **offline** with saved data.
