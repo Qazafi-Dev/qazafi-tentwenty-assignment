@@ -1,4 +1,5 @@
 import Loader from "@/components/Loader";
+import { placeholder_image } from "@/constants/booking.data";
 import { IMAGE_BASE } from "@/services/apiClient";
 import { Movie } from "@/services/movie";
 import { getMovies } from "@/services/movies";
@@ -43,8 +44,8 @@ export default function TabTwoScreen() {
   }, []);
   const renderMovies = ({ item }: { item: Movie }) => {
     const posterUri = item.poster_path
-      ? `${IMAGE_BASE}${item.poster_path}`
-      : "https://placeholder.com";
+      ? { uri: `${IMAGE_BASE}${item.poster_path}` }
+      : placeholder_image;
     return (
       <TouchableOpacity
         style={[
@@ -55,7 +56,7 @@ export default function TabTwoScreen() {
       >
         <ImageBackground
           style={styles.imageBackgroundLayer}
-          source={{ uri: posterUri }}
+          source={posterUri}
           resizeMode="cover"
           imageStyle={styles.imageCanvasRadius}
         >

@@ -1,5 +1,6 @@
 import Colors from "./Colors";
-
+const placeholder_image = require("@assets/images/comedy.png");
+export { placeholder_image };
 export const colors = {
   bg: "#F6F6FA",
   white: "#FFFFFF",

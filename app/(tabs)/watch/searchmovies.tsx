@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
+import { placeholder_image } from "@/constants/booking.data";
 import Colors from "@/constants/Colors";
 import { IMAGE_BASE } from "@/services/apiClient";
 import { Movie } from "@/services/movie";
@@ -65,8 +66,8 @@ const searchmovies = () => {
   };
   const renderMovies = ({ item }: { item: Movie }) => {
     const posterUri = item.poster_path
-      ? `${IMAGE_BASE}${item.poster_path}`
-      : "https://placeholder.com";
+      ? { uri: `${IMAGE_BASE}${item.poster_path}` }
+      : placeholder_image;
     return (
       <TouchableOpacity
         activeOpacity={0.85}
@@ -79,7 +80,7 @@ const searchmovies = () => {
         {/* Horizontal row layout items */}
         <View style={styles.thumbnailPosterBox}>
           <Image
-            source={{ uri: posterUri }}
+            source={posterUri}
             style={styles.thumbnailPosterCanvas}
             resizeMode="cover"
           />

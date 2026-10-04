@@ -1,6 +1,7 @@
 // app/(tabs)/watch/[id].tsx
 import Button from "@/components/Button";
 import Loader from "@/components/Loader";
+import { placeholder_image } from "@/constants/booking.data";
 import Colors from "@/constants/Colors";
 import { IMAGE_BASE } from "@/services/apiClient";
 import { Movie } from "@/services/movie";
@@ -54,8 +55,8 @@ export default function MovieDetailsScreen() {
   }, [id]);
 
   const imageUri = movie?.backdrop_path
-    ? `${IMAGE_BASE}${movie.backdrop_path}`
-    : "https://unsplash.com";
+    ? { uri: `${IMAGE_BASE}${movie.backdrop_path}` }
+    : placeholder_image;
 
   const renderHeroOverlay = () => (
     <View style={styles.heroTextOverlayContainer}>
@@ -108,7 +109,7 @@ export default function MovieDetailsScreen() {
       >
         <View style={styles.landscapeSplitWrapper}>
           <ImageBackground
-            source={{ uri: imageUri }}
+            source={imageUri}
             style={styles.heroPosterLandscape}
             imageStyle={styles.imageScaling}
             resizeMode="cover"
@@ -140,7 +141,7 @@ export default function MovieDetailsScreen() {
       showsVerticalScrollIndicator={false}
     >
       <ImageBackground
-        source={{ uri: imageUri }}
+        source={imageUri}
         style={styles.heroPosterPortrait}
         resizeMode="cover"
       >
